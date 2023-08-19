@@ -1,6 +1,7 @@
-@extends('admin.auth.header')
+@extends('layouts.master_blade')
 
-@section('register')
+@section('home_master')
+    
     <div class="page-header align-items-start min-vh-100">
         <span class="mask bg-light opacity-6"></span>
         <div class="container my-auto">
@@ -30,14 +31,14 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form class="text-start"  method="POST" action="{{ route('login') }}">
+                            <form class="text-start"  method="POST" action="{{ route('user.login') }}">
                                 @csrf
 
-                                @if (session('status'))
+                                {{-- @if (session('status'))
                                     <div class="mb-4 font-medium text-sm text-green-600">
                                         {{ session('status') }}
                                     </div>
-                                @endif
+                                @endif --}}
 
                                 <div class="input-group input-group-outline my-3">
                                     {{-- <label class="form-label">Email</label> --}}
@@ -62,7 +63,7 @@
                                 </div>
                                 <p class="mt-4 text-sm text-center">
                                     Don't have an account?
-                                    <a href="{{ url('register') }}" class="text-info text-gradient font-weight-bold">Sign
+                                    <a href="{{ url('user/register') }}" class="text-info text-gradient font-weight-bold">Sign
                                         up</a>
                                 </p>
                             </form>
@@ -71,38 +72,5 @@
                 </div>
             </div>
         </div>
-        <footer class="footer position-absolute bottom-2 py-2 w-100">
-            <div class="container">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-12 col-md-6 my-auto">
-                        <div class="copyright text-center text-sm text-white text-lg-start">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="#" class="font-weight-bold text-white">NZDevelopers</a>
-                            for a better web.
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white" t>Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link pe-0 text-white">License</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 @endsection

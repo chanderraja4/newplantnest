@@ -1,11 +1,11 @@
 @php
     
-    use App\Http\Controllers\HomeController;
+    use App\Http\Controllers\CartController;
     
     $total = 0;
     
     if (Session::has('usernew')) {
-        $total = HomeController::cartItem();
+        $total = CartController::cartItem();
     } else {
     }
 @endphp
@@ -21,7 +21,7 @@
     <div class="offcanvas__option">
         <div class="offcanvas__links">
             @if (Session::has('usernew'))
-                <a href="{{ url('/logout/user') }}">Logout</a>
+                <a href="{{ url('/user/logout') }}">Logout</a>
             @else
                 <a href="{{ url('login/user') }}">Sign In</a>
             @endif
@@ -60,14 +60,14 @@
                     <div class="header__top__right">
                         <div class="header__top__links">
                             @if (Session::has('usernew'))
-                                <a href="{{ url('/logout/user') }}">Logout</a>
+                                <a href="{{ url('/user/logout') }}">Logout</a>
                             @else
-                                <a href="{{ url('login/user') }}">Sign In</a>
+                                <a href="{{ url('user/login') }}">Sign In</a>
                             @endif
                             @if (Session::has('usernew'))
                             {{-- <a href="{{ url('/logout/user') }}">Logout</a> --}}
                             @else
-                            <a href="{{ url('/register/user') }}">Sign Up</a>
+                            <a href="{{ url('/user/register') }}">Sign Up</a>
                         @endif
                         </div>
                     </div>

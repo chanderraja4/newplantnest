@@ -1,11 +1,13 @@
 
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PlantsController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,23 @@ Route::get('/slider/delete/{id}', [SliderController::class, 'deleteslider']);
 
 // Shop Routes
 Route::get('shop', [ShopController::class, 'index'])->name('shop');
+
+
+
+// Cart Routes
+
+Route::get('/cart', [CartController::class, 'cart']);
+Route::post('/add_to_cart', [CartController::class, 'addtocart']);
+Route::get('/cart', [CartController::class, 'cartlist']);
+Route::get('/cart/delete/{id}', [CartController::class, 'cartdelete']);
+
+
+// User Auth Routes
+Route::get('/user/login', [UserAuthController::class, 'login_user']);
+Route::post('/user/login', [UserAuthController::class, 'login_data'])->name('user.login');
+Route::get('/user/register', [UserAuthController::class, 'register_user']);
+Route::post('/user/register', [UserAuthController::class, 'register_data'])->name('user.register');
+Route::get('/user/logout', [UserAuthController::class, 'userlogout'])->name('user.register');
 
 
 
